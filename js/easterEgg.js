@@ -3,6 +3,7 @@ let keys = [], konami = "38,38,40,40,37,39,37,39,66,65";
 
 const terminal = document.getElementById("retro-terminal");
 const terminalText = document.getElementById("terminal-text");
+const cursor = document.getElementById("cursor");
 
 window.addEventListener("keydown", e => {
   keys.push(e.keyCode);
@@ -15,6 +16,7 @@ window.addEventListener("keydown", e => {
 function activateTerminal() {
   terminal.classList.remove("hidden");
   terminalText.innerHTML = ""; // clear previous text
+  cursor.style.display = "inline-block";
 
   const messages = [
     "Welcome to the Retro Terminal!",
@@ -35,6 +37,7 @@ function activateTerminal() {
           terminalText.innerHTML += line[j];
           j++;
           setTimeout(typeChar, 50);
+          terminal.scrollTop = terminal.scrollHeight;
         } else {
           terminalText.innerHTML += "\n";
           i++;
@@ -49,4 +52,5 @@ function activateTerminal() {
 
 function closeTerminal() {
   terminal.classList.add("hidden");
+  cursor.style.display = "none";
 }
