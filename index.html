@@ -1,64 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lewis — Technical Artist (Retro)</title>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Theme color for mobile -->
-  <meta name="theme-color" content="#0ff" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lewis — Technical Artist CV</title>
+  <link rel="icon" href="/lewis_portfolio.github.io/favicon.ico">
+  <link rel="stylesheet" href="/lewis_portfolio.github.io/css/styles.css">
 </head>
 <body>
+  <div class="sidebar" id="sidebar">
+    <h2>Lewis</h2>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
 
-  <!-- CRT overlays -->
-  <div class="crt-overlay"></div>
-  <div class="scanlines"></div>
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-  <!-- Progress bar -->
-  <div id="progress"><div id="progress-bar"></div></div>
+  <div class="main" id="main-content">
+    <img class="banner" src="/lewis_portfolio.github.io/img/banner.png" alt="Lewis Technical Artist Banner">
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <div class="brand">
-      <img src="img/banner.png" alt="Lewis — Technical Artist" class="banner" />
-      <button id="sound-toggle" class="sound-toggle" title="Toggle click sound">🔊</button>
-    </div>
-    <nav>
-      <a href="#profile">Profile</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-    </nav>
-    <div class="footer-note">© 2025 Lewis</div>
-  </aside>
+    <h1>Lewis</h1>
+    <p class="contact">
+      Technical Artist | Blender | Unity | Substance Painter<br>
+      📧 lewis@email.com &nbsp;|&nbsp;
+      🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
+      💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
+    </p>
 
-  <!-- Toggle button -->
-  <button class="toggle-btn" id="toggle-btn" aria-label="Toggle menu">☰</button>
+    <hr>
 
-  <!-- Main content -->
-  <main class="main" id="main">
-    <!-- intro header with typing flicker -->
-    <header class="hero">
-      <h1 class="title">
-        <span id="typed">Lewis — Technical Artist</span>
-        <span class="cursor">█</span>
-      </h1>
-      <p class="subtitle">Bridging art & engineering — realtime visuals, shaders & pipelines.</p>
-    </header>
-
-    <hr class="divider" />
-
-    <section id="profile" class="fade-in">
+    <section id="profile">
       <h2>Profile</h2>
-      <p>Creative and technically skilled artist experienced in bridging the gap between art and engineering.
-         Proficient in building real-time visuals, shaders, and pipeline tools for modern 3D workflows.</p>
+      <p id="intro-text"></p>
     </section>
 
-    <section id="skills" class="fade-in">
+    <section id="skills">
       <h2>Technical Skills</h2>
       <ul>
         <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
@@ -68,83 +47,63 @@
       </ul>
     </section>
 
-    <section id="projects" class="fade-in">
+    <section id="projects">
       <h2>Projects</h2>
 
       <h3>🧱 Blender Projects</h3>
       <div class="media-grid">
-        <div class="media-item" data-caption="Blender - Procedural Env">
-          <img src="media/blender/blender1.jpg" alt="Blender 1" />
-        </div>
-        <div class="media-item" data-caption="Blender - Props">
-          <img src="media/blender/blender2.jpg" alt="Blender 2" />
-        </div>
+        <img src="/lewis_portfolio.github.io/media/blender/blender1.jpg" alt="Blender Project 1">
+        <img src="/lewis_portfolio.github.io/media/blender/blender2.jpg" alt="Blender Project 2">
       </div>
 
       <h3>🎮 Unity Projects</h3>
       <div class="media-grid">
-        <div class="media-item" data-caption="Unity - Shader Demo">
-          <video muted loop src="media/unity/unity1.mp4"></video>
-        </div>
-        <div class="media-item" data-caption="Unity - Editor Tool">
-          <video muted loop src="media/unity/unity2.mp4"></video>
-        </div>
+        <video src="/lewis_portfolio.github.io/media/unity/unity1.mp4" controls></video>
+        <video src="/lewis_portfolio.github.io/media/unity/unity2.mp4" controls></video>
       </div>
 
       <h3>🎨 Substance Painter Projects</h3>
       <div class="media-grid">
-        <div class="media-item" data-caption="Substance - Smart Material">
-          <img src="media/substance/sub1.jpg" alt="Substance 1" />
-        </div>
+        <img src="/lewis_portfolio.github.io/media/substance/sub1.jpg" alt="Substance Project">
       </div>
-
     </section>
 
-    <section id="experience" class="fade-in">
+    <section id="experience">
       <h2>Experience</h2>
 
       <h3>Technical Artist – Freelance</h3>
       <p><em>2022 – Present</em></p>
       <ul>
-        <li>Built tools & shaders for Unity games; optimized VR/AR performance.</li>
+        <li>Built tools and shaders for Unity-based games.</li>
+        <li>Optimized real-time effects for VR and AR apps.</li>
       </ul>
+
       <div class="media-grid">
-        <div class="media-item" data-caption="Freelance Tool">
-          <img src="media/experience/exp1.jpg" alt="Experience 1" />
-        </div>
+        <img src="/lewis_portfolio.github.io/media/experience/exp1.jpg" alt="Experience 1">
       </div>
 
       <h3>3D Artist – Creative Studio</h3>
       <p><em>2020 – 2022</em></p>
       <ul>
-        <li>Modeled and textured assets using Blender and Substance Painter.</li>
+        <li>Modeled and textured 3D assets using Blender and Substance Painter.</li>
+        <li>Integrated assets into Unity and Unreal pipelines.</li>
       </ul>
-      <div class="media-grid">
-        <div class="media-item" data-caption="Studio Project">
-          <img src="media/experience/studio1.jpg" alt="Studio project" />
-        </div>
-      </div>
     </section>
 
-    <section id="education" class="fade-in">
+    <section id="education">
       <h2>Education</h2>
       <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
     </section>
 
-    <!-- back to top -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
-
-    <footer class="site-footer">
-      <div class="footer-left">Built with ♥ — Retro theme</div>
-      <div class="footer-right">Follow: <a href="#">linkedin.com/in/lewis</a></div>
+    <footer>
+      © 2025 Lewis | Technical Artist Portfolio CV
     </footer>
-  </main>
+  </div>
 
-  <!-- Lightbox container created by JS -->
+  <div id="lightbox"></div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/lightbox.js"></script>
+  <script src="/lewis_portfolio.github.io/js/main.js"></script>
+  <script src="/lewis_portfolio.github.io/js/scroll.js"></script>
+  <script src="/lewis_portfolio.github.io/js/lightbox.js"></script>
 </body>
 </html>

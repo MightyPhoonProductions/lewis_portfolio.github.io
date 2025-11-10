@@ -57,4 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // make playClick available
   window.playClick = playClick;
+
+  function toggleSidebar() {
+  document.body.classList.toggle("collapsed");
+  const audio = new Audio("/lewis_portfolio.github.io/audio/click.mp3");
+  audio.play();
+}
+
+// Typing effect for intro text
+const introText = "Creative and technically skilled artist bridging art and engineering. Passionate about real-time visuals, shaders, and optimization.";
+function typeWriter() {
+  if (i < introText.length) {
+    document.getElementById("intro-text").innerHTML += introText.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+window.onload = typeWriter;
+
+
 });
