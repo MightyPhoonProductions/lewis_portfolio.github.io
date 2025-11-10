@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lewis — Technical Artist CV</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lewis — Technical Artist (Retro)</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Theme color for mobile -->
+  <meta name="theme-color" content="#0ff" />
 </head>
 <body>
-  <!-- SIDEBAR -->
-  <div class="sidebar" id="sidebar">
-    <h2>Lewis</h2>
-    <a href="#profile">Profile</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-  </div>
 
-  <!-- TOGGLE BUTTON -->
-  <button class="toggle-btn" id="toggle-btn">☰</button>
+  <!-- CRT overlays -->
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
 
-  <!-- MAIN -->
-  <main class="main" id="main-content">
-    <h1>Lewis</h1>
-    <p class="contact">
-      Technical Artist | Blender | Unity | Substance Painter<br>
-      📧 lewis@email.com &nbsp;|&nbsp;
-      🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
-      💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
-    </p>
-    <hr>
+  <!-- Progress bar -->
+  <div id="progress"><div id="progress-bar"></div></div>
 
-    <!-- PROFILE -->
-    <section id="profile">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="img/banner.png" alt="Lewis — Technical Artist" class="banner" />
+      <button id="sound-toggle" class="sound-toggle" title="Toggle click sound">🔊</button>
+    </div>
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </nav>
+    <div class="footer-note">© 2025 Lewis</div>
+  </aside>
+
+  <!-- Toggle button -->
+  <button class="toggle-btn" id="toggle-btn" aria-label="Toggle menu">☰</button>
+
+  <!-- Main content -->
+  <main class="main" id="main">
+    <!-- intro header with typing flicker -->
+    <header class="hero">
+      <h1 class="title">
+        <span id="typed">Lewis — Technical Artist</span>
+        <span class="cursor">█</span>
+      </h1>
+      <p class="subtitle">Bridging art & engineering — realtime visuals, shaders & pipelines.</p>
+    </header>
+
+    <hr class="divider" />
+
+    <section id="profile" class="fade-in">
       <h2>Profile</h2>
-      <p>
-        Creative and technically skilled artist experienced in bridging the gap between art and engineering.
-        Proficient in building real-time visuals, shaders, and pipeline tools for modern 3D workflows.
-      </p>
+      <p>Creative and technically skilled artist experienced in bridging the gap between art and engineering.
+         Proficient in building real-time visuals, shaders, and pipeline tools for modern 3D workflows.</p>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" class="fade-in">
       <h2>Technical Skills</h2>
       <ul>
         <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
@@ -51,77 +68,83 @@
       </ul>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
+    <section id="projects" class="fade-in">
       <h2>Projects</h2>
 
       <h3>🧱 Blender Projects</h3>
-      <ul>
-        <li>Procedural environment generation using Geometry Nodes and Python scripting.</li>
-        <li>Stylized 3D props and animation pipelines for real-time rendering.</li>
-      </ul>
       <div class="media-grid">
-        <div class="media-item" data-caption="Blender Project 1">
-          <img src="media/blender/blender1.jpg" alt="Blender Project 1">
+        <div class="media-item" data-caption="Blender - Procedural Env">
+          <img src="media/blender/blender1.jpg" alt="Blender 1" />
         </div>
-        <div class="media-item" data-caption="Blender Project 2">
-          <img src="media/blender/blender2.jpg" alt="Blender Project 2">
+        <div class="media-item" data-caption="Blender - Props">
+          <img src="media/blender/blender2.jpg" alt="Blender 2" />
         </div>
       </div>
 
       <h3>🎮 Unity Projects</h3>
-      <ul>
-        <li>Developed shader-based effects using Shader Graph and HLSL.</li>
-        <li>Created editor tools to automate material and lighting workflows.</li>
-      </ul>
       <div class="media-grid">
-        <div class="media-item" data-caption="Unity Demo 1">
+        <div class="media-item" data-caption="Unity - Shader Demo">
           <video muted loop src="media/unity/unity1.mp4"></video>
         </div>
-        <div class="media-item" data-caption="Unity Demo 2">
+        <div class="media-item" data-caption="Unity - Editor Tool">
           <video muted loop src="media/unity/unity2.mp4"></video>
         </div>
       </div>
 
       <h3>🎨 Substance Painter Projects</h3>
-      <ul>
-        <li>Created high-quality texture sets for realistic and stylized assets.</li>
-        <li>Developed procedural Smart Materials for consistent pipelines.</li>
-      </ul>
       <div class="media-grid">
-        <div class="media-item" data-caption="Substance Example 1">
-          <img src="media/substance/sub1.jpg" alt="Substance Example 1">
+        <div class="media-item" data-caption="Substance - Smart Material">
+          <img src="media/substance/sub1.jpg" alt="Substance 1" />
         </div>
       </div>
+
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
+    <section id="experience" class="fade-in">
       <h2>Experience</h2>
+
       <h3>Technical Artist – Freelance</h3>
       <p><em>2022 – Present</em></p>
       <ul>
-        <li>Collaborated with indie studios to build shaders for Unity-based games.</li>
-        <li>Optimized real-time effects for VR and AR applications.</li>
+        <li>Built tools & shaders for Unity games; optimized VR/AR performance.</li>
       </ul>
-
       <div class="media-grid">
-        <div class="media-item" data-caption="VR Shader Demo">
-          <video muted loop src="media/experience/exp1.mp4"></video>
+        <div class="media-item" data-caption="Freelance Tool">
+          <img src="media/experience/exp1.jpg" alt="Experience 1" />
+        </div>
+      </div>
+
+      <h3>3D Artist – Creative Studio</h3>
+      <p><em>2020 – 2022</em></p>
+      <ul>
+        <li>Modeled and textured assets using Blender and Substance Painter.</li>
+      </ul>
+      <div class="media-grid">
+        <div class="media-item" data-caption="Studio Project">
+          <img src="media/experience/studio1.jpg" alt="Studio project" />
         </div>
       </div>
     </section>
 
-    <section id="education">
+    <section id="education" class="fade-in">
       <h2>Education</h2>
       <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
     </section>
 
-    <footer>© 2025 Lewis | Technical Artist Portfolio CV</footer>
+    <!-- back to top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <footer class="site-footer">
+      <div class="footer-left">Built with ♥ — Retro theme</div>
+      <div class="footer-right">Follow: <a href="#">linkedin.com/in/lewis</a></div>
+    </footer>
   </main>
 
-  <script src="main.js"></script>
-  <script src="scroll.js"></script>
-  <script src="lightbox.js"></script>
+  <!-- Lightbox container created by JS -->
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/lightbox.js"></script>
 </body>
 </html>

@@ -1,29 +1,41 @@
-const mediaItems = document.querySelectorAll('.media-item');
-const lightbox = document.createElement('div');
-lightbox.id = 'lightbox';
-document.body.appendChild(lightbox);
+// lightbox.js
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.media-item');
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  document.body.appendChild(lb);
 
-lightbox.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightbox.innerHTML = '';
-});
-
-mediaItems.forEach(item => {
-  const media = item.querySelector('img, video');
-
-  item.addEventListener('click', () => {
-    lightbox.classList.add('active');
-    const clone = media.cloneNode(true);
-    if (clone.tagName.toLowerCase() === 'video') {
-      clone.setAttribute('controls', 'controls');
-      clone.removeAttribute('muted');
-      clone.play();
-    }
-    lightbox.appendChild(clone);
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      const media = item.querySelector('img,video');
+      if(!media) return;
+      lb.innerHTML = `<div class="inner"></div>`;
+      const inner = lb.querySelector('.inner');
+      const clone = media.cloneNode(true);
+      if(clone.tagName.toLowerCase() === 'video'){
+        clone.setAttribute('controls','controls');
+        clone.removeAttribute('muted');
+        clone.currentTime = 0;
+        clone.play().catch(()=>{});
+      }
+      inner.appendChild(clone);
+      lb.classList.add('active');
+    });
   });
 
-  if (media.tagName.toLowerCase() === 'video') {
-    item.addEventListener('mouseenter', () => media.play());
-    item.addEventListener('mouseleave', () => media.pause());
-  }
+  // close on click outside
+  lb.addEventListener('click', (e) => {
+    if(e.target === lb){
+      lb.classList.remove('active');
+      lb.innerHTML = '';
+    }
+  });
+
+  // close on Esc
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') {
+      lb.classList.remove('active');
+      lb.innerHTML = '';
+    }
+  });
 });
