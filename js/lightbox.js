@@ -11,4 +11,6 @@ document.querySelectorAll(".media-grid img, .media-grid video").forEach(el=>{
   });
 });
 
+// Close lightbox on click or touch
 lightbox.addEventListener("click",()=>{ lightbox.style.display="none"; });
+lightbox.addEventListener("touchstart",()=>{ lightbox.style.display="none"; });

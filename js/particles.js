@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-const particleCount = 80;
+let particleCount = window.innerWidth < 480 ? 50 : 80; // reduce on mobile
 
 class Particle {
   constructor() {
@@ -28,9 +28,13 @@ class Particle {
   }
 }
 
-for(let i=0;i<particleCount;i++){
-  particles.push(new Particle());
+function initParticles() {
+  particles = [];
+  for(let i=0;i<particleCount;i++){
+    particles.push(new Particle());
+  }
 }
+initParticles();
 
 function animateParticles(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -45,4 +49,6 @@ animateParticles();
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  particleCount = window.innerWidth < 480 ? 50 : 80;
+  initParticles();
 });

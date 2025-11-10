@@ -88,6 +88,7 @@ body::before {
   height:100%;
   z-index: -1;
   pointer-events: none;
+   opacity: 0.25;
 }
 
 /* -----------------------------
@@ -136,3 +137,49 @@ body::before {
 ----------------------------- */
 .fade-init { opacity:0; transform: translateY(20px); transition: all 0.8s ease-out; }
 .fade-in { opacity:1; transform: translateY(0); }
+
+/* -----------------------------
+   Mobile & Responsive Adjustments
+----------------------------- */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+    font-size: 12px;
+    padding-top: 15px;
+  }
+
+  .toggle-btn {
+    left: 190px;
+    top: 15px;
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .main {
+    margin-left: 180px;
+    padding: 20px;
+  }
+
+  .project-filters button {
+    margin-bottom: 5px;
+  }
+
+  #back-to-top {
+    font-size: 14px;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 { font-size: 26px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  p, li { font-size: 12px; }
+
+  .media-grid img, 
+  .media-grid video, 
+  .banner {
+    width: 100%;
+    height: auto;
+  }
+}

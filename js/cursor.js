@@ -8,6 +8,7 @@ for(let i=0;i<trailCount;i++){
   trail.push(el);
 }
 
+// Mouse movement
 document.addEventListener("mousemove", e => {
   trail.forEach((el,i)=>{
     setTimeout(()=>{
@@ -15,3 +16,13 @@ document.addEventListener("mousemove", e => {
     }, i*10);
   });
 });
+
+// Touch movement
+document.addEventListener("touchmove", e => {
+  const touch = e.touches[0];
+  trail.forEach((el,i)=>{
+    setTimeout(()=>{
+      el.style.transform = `translate(${touch.clientX}px, ${touch.clientY}px)`;
+    }, i*10);
+  });
+},{passive:true});
