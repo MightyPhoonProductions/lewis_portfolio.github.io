@@ -1,109 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lewis — Technical Artist CV</title>
-  <link rel="icon" href="/lewis_portfolio.github.io/favicon.ico">
-  <link rel="stylesheet" href="/lewis_portfolio.github.io/css/styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lewis — Technical Artist CV</title>
+<link rel="icon" href="/lewis_portfolio.github.io/favicon.ico">
+<link rel="stylesheet" href="/lewis_portfolio.github.io/css/styles.css">
 </head>
-<body>
-  <div class="sidebar" id="sidebar">
-    <h2>Lewis</h2>
-    <a href="#profile">Profile</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-  </div>
+<body class="dark">
 
-  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <h2>Lewis</h2>
+  <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+  <a href="#profile">Profile</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+</div>
 
-  <div class="main" id="main-content">
-    <img class="banner" src="/lewis_portfolio.github.io/img/banner.png" alt="Lewis Technical Artist Banner">
+<!-- Toggle sidebar -->
+<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-    <h1>Lewis</h1>
-    <p class="contact">
-      Technical Artist | Blender | Unity | Substance Painter<br>
-      📧 lewis@email.com &nbsp;|&nbsp;
-      🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
-      💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
-    </p>
+<!-- Main content -->
+<div class="main" id="main-content">
+  <img class="banner" src="/lewis_portfolio.github.io/img/banner.png" alt="Lewis Technical Artist Banner">
 
-    <hr>
+  <h1>Lewis</h1>
+  <p class="contact">
+    Technical Artist | Blender | Unity | Substance Painter<br>
+    📧 lewis@email.com &nbsp;|&nbsp;
+    🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
+    💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
+  </p>
 
-    <section id="profile">
-      <h2>Profile</h2>
-      <p id="intro-text"></p>
-    </section>
+  <hr>
 
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul>
-        <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
-        <li><strong>Programming:</strong> C#, Python, HLSL, Shader Graph</li>
-        <li><strong>Tech Art:</strong> Rigging, Lighting, PBR Materials, VFX</li>
-        <li><strong>Version Control:</strong> Git, Plastic SCM, Perforce</li>
-      </ul>
-    </section>
+  <section id="profile">
+    <h2>Profile</h2>
+    <p id="intro-text"></p>
+  </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
+      <li><strong>Programming:</strong> C#, Python, HLSL, Shader Graph</li>
+      <li><strong>Tech Art:</strong> Rigging, Lighting, PBR Materials, VFX</li>
+      <li><strong>Version Control:</strong> Git, Plastic SCM, Perforce</li>
+    </ul>
+  </section>
 
-      <h3>🧱 Blender Projects</h3>
-      <div class="media-grid">
-        <img src="/lewis_portfolio.github.io/media/blender/blender1.jpg" alt="Blender Project 1">
-        <img src="/lewis_portfolio.github.io/media/blender/blender2.jpg" alt="Blender Project 2">
-      </div>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-filters">
+      <button onclick="filterProjects('blender')">Blender</button>
+      <button onclick="filterProjects('unity')">Unity</button>
+      <button onclick="filterProjects('substance')">Substance</button>
+      <button onclick="filterProjects('all')">All</button>
+    </div>
 
-      <h3>🎮 Unity Projects</h3>
-      <div class="media-grid">
-        <video src="/lewis_portfolio.github.io/media/unity/unity1.mp4" controls></video>
-        <video src="/lewis_portfolio.github.io/media/unity/unity2.mp4" controls></video>
-      </div>
+    <div class="media-grid project-item blender">
+      <img src="/lewis_portfolio.github.io/media/blender/blender1.jpg" alt="Blender Project 1">
+      <img src="/lewis_portfolio.github.io/media/blender/blender2.jpg" alt="Blender Project 2">
+    </div>
 
-      <h3>🎨 Substance Painter Projects</h3>
-      <div class="media-grid">
-        <img src="/lewis_portfolio.github.io/media/substance/sub1.jpg" alt="Substance Project">
-      </div>
-    </section>
+    <div class="media-grid project-item unity">
+      <video src="/lewis_portfolio.github.io/media/unity/unity1.mp4" controls></video>
+      <video src="/lewis_portfolio.github.io/media/unity/unity2.mp4" controls></video>
+    </div>
 
-    <section id="experience">
-      <h2>Experience</h2>
+    <div class="media-grid project-item substance">
+      <img src="/lewis_portfolio.github.io/media/substance/sub1.jpg" alt="Substance Project">
+    </div>
+  </section>
 
-      <h3>Technical Artist – Freelance</h3>
-      <p><em>2022 – Present</em></p>
-      <ul>
-        <li>Built tools and shaders for Unity-based games.</li>
-        <li>Optimized real-time effects for VR and AR apps.</li>
-      </ul>
+  <section id="experience">
+    <h2>Experience</h2>
+    <h3>Technical Artist – Freelance</h3>
+    <p><em>2022 – Present</em></p>
+    <ul>
+      <li>Built tools and shaders for Unity-based games.</li>
+      <li>Optimized real-time effects for VR and AR apps.</li>
+    </ul>
+    <div class="media-grid project-item experience">
+      <img src="/lewis_portfolio.github.io/media/experience/exp1.jpg" alt="Experience Project">
+    </div>
 
-      <div class="media-grid">
-        <img src="/lewis_portfolio.github.io/media/experience/exp1.jpg" alt="Experience 1">
-      </div>
+    <h3>3D Artist – Creative Studio</h3>
+    <p><em>2020 – 2022</em></p>
+    <ul>
+      <li>Modeled and textured 3D assets using Blender and Substance Painter.</li>
+      <li>Integrated assets into Unity and Unreal pipelines.</li>
+    </ul>
+  </section>
 
-      <h3>3D Artist – Creative Studio</h3>
-      <p><em>2020 – 2022</em></p>
-      <ul>
-        <li>Modeled and textured 3D assets using Blender and Substance Painter.</li>
-        <li>Integrated assets into Unity and Unreal pipelines.</li>
-      </ul>
-    </section>
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
+  </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
-    </section>
+  <button id="back-to-top" onclick="scrollToTop()">↑ Top</button>
 
-    <footer>
-      © 2025 Lewis | Technical Artist Portfolio CV
-    </footer>
-  </div>
+  <footer>
+    © 2025 Lewis | Technical Artist Portfolio CV
+  </footer>
+</div>
 
-  <div id="lightbox"></div>
+<div id="lightbox"></div>
 
-  <script src="/lewis_portfolio.github.io/js/main.js"></script>
-  <script src="/lewis_portfolio.github.io/js/scroll.js"></script>
-  <script src="/lewis_portfolio.github.io/js/lightbox.js"></script>
+<script src="/lewis_portfolio.github.io/js/main.js"></script>
+<script src="/lewis_portfolio.github.io/js/scroll.js"></script>
+<script src="/lewis_portfolio.github.io/js/lightbox.js"></script>
+<script src="/lewis_portfolio.github.io/js/filter.js"></script>
+<script src="/lewis_portfolio.github.io/js/easterEgg.js"></script>
 </body>
 </html>

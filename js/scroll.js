@@ -1,24 +1,13 @@
-// scroll.js
-document.addEventListener('DOMContentLoaded', () => {
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  faders.forEach(f => observer.observe(f));
-
-  // Video hover play (muted)
-  const mediaItems = document.querySelectorAll('.media-item');
-  mediaItems.forEach(item => {
-    const vid = item.querySelector('video');
-    if(vid){
-      item.addEventListener('mouseenter', () => { vid.muted = true; vid.play().catch(()=>{}); });
-      item.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+// Fade in sections on scroll
+const faders = document.querySelectorAll("section, .media-grid");
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("fade-in");
+      observer.unobserve(entry.target);
     }
   });
-});
+}, appearOptions);
+
+faders.forEach(fader => { fader.classList.add("fade-init"); appearOnScroll.observe(fader); });
