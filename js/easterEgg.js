@@ -5,7 +5,7 @@ const terminal = document.getElementById("retro-terminal");
 const terminalText = document.getElementById("terminal-text");
 const cursor = document.getElementById("cursor");
 
-window.addEventListener("keydown", e => {
+window.addEventListener("keydown", e=>{
   keys.push(e.keyCode);
   if(keys.toString().includes(konami)){
     activateTerminal();
@@ -15,8 +15,18 @@ window.addEventListener("keydown", e => {
 
 function activateTerminal() {
   terminal.classList.remove("hidden");
-  terminalText.innerHTML = ""; // clear previous text
-  cursor.style.display = "inline-block";
+  terminalText.innerHTML = "";
+  cursor.style.display="inline-block";
+
+  const ascii = [
+    "      __          __        ",
+    "     / /  ___ ___/ /__  ___ ",
+    "    / _ \\/ -_) _  / _ \\/ _ \\",
+    "   /_//_/\\__/\\_,_/\\___/\\___/",
+    "",
+  ];
+
+  ascii.forEach(line => terminalText.innerHTML += line + "\n");
 
   const messages = [
     "Welcome to the Retro Terminal!",
@@ -28,20 +38,19 @@ function activateTerminal() {
   ];
 
   let i = 0;
-  function typeLine() {
+  function typeLine(){
     if(i < messages.length){
-      let line = messages[i];
-      let j = 0;
+      let line = messages[i], j = 0;
       function typeChar(){
-        if(j < line.length){
+        if(j<line.length){
           terminalText.innerHTML += line[j];
           j++;
-          setTimeout(typeChar, 50);
+          setTimeout(typeChar,50);
           terminal.scrollTop = terminal.scrollHeight;
         } else {
           terminalText.innerHTML += "\n";
           i++;
-          setTimeout(typeLine, 200);
+          setTimeout(typeLine,200);
         }
       }
       typeChar();
@@ -50,7 +59,7 @@ function activateTerminal() {
   typeLine();
 }
 
-function closeTerminal() {
+function closeTerminal(){
   terminal.classList.add("hidden");
-  cursor.style.display = "none";
+  cursor.style.display="none";
 }

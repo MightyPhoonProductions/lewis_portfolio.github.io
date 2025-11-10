@@ -1,7 +1,8 @@
-function filterProjects(category){
-  const items = document.querySelectorAll(".project-item");
+function filterProjects(cat){
+  const items = document.querySelectorAll('.project-item');
   items.forEach(item=>{
-    if(category==="all") item.style.display="grid";
-    else item.style.display = item.classList.contains(category) ? "grid" : "none";
+    if(cat==='all' || item.classList.contains(cat)){
+      item.style.display = "grid";
+    } else item.style.display = "none";
   });
 }

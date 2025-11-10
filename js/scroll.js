@@ -1,13 +1,11 @@
-// Fade in sections on scroll
-const faders = document.querySelectorAll("section, .media-grid");
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("fade-in");
-      observer.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
+const faders = document.querySelectorAll('.fade-init');
 
-faders.forEach(fader => { fader.classList.add("fade-init"); appearOnScroll.observe(fader); });
+function checkFade() {
+  const triggerBottom = window.innerHeight * 0.9;
+  faders.forEach(f => {
+    const top = f.getBoundingClientRect().top;
+    if(top < triggerBottom) f.classList.add('fade-in');
+  });
+}
+window.addEventListener('scroll', checkFade);
+window.addEventListener('load', checkFade);

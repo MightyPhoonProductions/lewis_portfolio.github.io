@@ -1,42 +1,35 @@
-// Toggle sidebar
-function toggleSidebar() {
-  document.body.classList.toggle("collapsed");
-  playClick();
-}
-
-// Typing intro
-const introText = "Creative and technically skilled artist bridging art and engineering. Passionate about real-time visuals, shaders, and optimization.";
-let i = 0;
-function typeWriter() {
-  if (i < introText.length) {
-    document.getElementById("intro-text").innerHTML += introText.charAt(i);
-    i++;
-    setTimeout(typeWriter, 40);
+// Typing effect for intro text
+const intro = "Creative and technically skilled artist bridging art & engineering. Proficient in shaders, tools, and real-time 3D pipelines.";
+const introEl = document.getElementById("intro-text");
+let idx = 0;
+function typeIntro() {
+  if(idx < intro.length){
+    introEl.innerHTML += intro[idx];
+    idx++;
+    setTimeout(typeIntro, 30);
   }
 }
-window.onload = typeWriter;
+window.addEventListener("load", () => {
+  typeIntro();
+  playAudio("/lewis_portfolio.github.io/audio/poweron.mp3");
+});
 
-// Click sound
-function playClick() {
-  const audio = new Audio("/lewis_portfolio.github.io/audio/click.mp3");
-  audio.play();
-}
-
-// Dark/light mode
+// Theme toggle
 function toggleTheme() {
-  if (document.body.classList.contains("dark")) {
-    document.body.classList.replace("dark","light");
-  } else {
-    document.body.classList.replace("light","dark");
-  }
+  document.body.classList.toggle("dark");
 }
 
 // Back to top
-window.onscroll = function() {
-  const btn = document.getElementById("back-to-top");
-  if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btn.style.display = "block";
-  else btn.style.display = "none";
-};
 function scrollToTop() {
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
+
+// Audio feedback
+function playAudio(src){
+  const audio = new Audio(src);
+  audio.volume = 0.2;
+  audio.play();
+}
+document.querySelectorAll('button,a').forEach(el=>{
+  el.addEventListener('click',()=>playAudio("/lewis_portfolio.github.io/audio/click.mp3"));
+});
