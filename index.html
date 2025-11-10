@@ -5,174 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lewis — Technical Artist CV</title>
 
-  <!-- Optional favicon -->
+  <!-- Favicon (optional) -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <style>
-    /* --- GLOBAL STYLES --- */
-    body {
-      margin: 0;
-      font-family: 'Consolas', 'Source Code Pro', 'Courier New', monospace;
-      background-color: #1E1E1E;
-      color: #D4D4D4;
-      scroll-behavior: smooth;
-      display: flex;
-    }
-
-    /* --- SIDEBAR --- */
-    .sidebar {
-      height: 100vh;
-      width: 240px;
-      background-color: #252526;
-      padding-top: 20px;
-      position: fixed;
-      left: 0;
-      top: 0;
-      overflow-x: hidden;
-      border-right: 1px solid #3C3C3C;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: translateX(0);
-      opacity: 1;
-      z-index: 1000;
-    }
-
-    .sidebar h2 {
-      color: #C586C0;
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .sidebar a {
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 14px;
-      color: #D4D4D4;
-      display: block;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background-color: #373737;
-      color: #4FC1FF;
-    }
-
-    /* --- TOGGLE BUTTON --- */
-    .toggle-btn {
-      position: fixed;
-      left: 250px;
-      top: 20px;
-      background-color: #252526;
-      border: none;
-      color: #D4D4D4;
-      padding: 8px 10px;
-      cursor: pointer;
-      font-size: 16px;
-      z-index: 1100;
-      transition: left 0.3s ease;
-    }
-
-    .collapsed .toggle-btn {
-      left: 20px;
-    }
-
-    /* --- MAIN CONTENT --- */
-    .main {
-      margin-left: 240px;
-      padding: 40px 50px;
-      max-width: 900px;
-      transition: margin-left 0.3s ease;
-    }
-
-    .collapsed .sidebar {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-
-    .collapsed .main {
-      margin-left: 0;
-    }
-
-    h1 {
-      font-size: 32px;
-      color: #C586C0;
-    }
-
-    h2 {
-      color: #569CD6;
-      text-transform: uppercase;
-      border-bottom: 1px solid #3C3C3C;
-      padding-bottom: 5px;
-    }
-
-    h3 {
-      color: #C586C0;
-    }
-
-    p, li {
-      font-size: 14px;
-      color: #DCDCDC;
-    }
-
-    ul {
-      margin: 5px 0 10px 20px;
-    }
-
-    a {
-      color: #4FC1FF;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .contact {
-      color: #808080;
-      font-size: 13px;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #3C3C3C;
-      margin: 30px 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #808080;
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 1px solid #3C3C3C;
-    }
-
-    /* --- RESPONSIVE STYLES --- */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        transform: translateX(-100%);
-        opacity: 0;
-        width: 220px;
-      }
-
-      .main {
-        margin-left: 0;
-        padding: 30px 20px;
-      }
-
-      .toggle-btn {
-        left: 20px;
-      }
-
-      body.show-sidebar .sidebar {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  </style>
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -201,7 +38,6 @@
 
     <hr>
 
-    <!-- Profile -->
     <section id="profile">
       <h2>Profile</h2>
       <p>
@@ -211,7 +47,6 @@
       </p>
     </section>
 
-    <!-- Skills -->
     <section id="skills">
       <h2>Technical Skills</h2>
       <ul>
@@ -222,7 +57,6 @@
       </ul>
     </section>
 
-    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
 
@@ -246,7 +80,6 @@
       </ul>
     </section>
 
-    <!-- Experience -->
     <section id="experience">
       <h2>Experience</h2>
 
@@ -265,7 +98,6 @@
       </ul>
     </section>
 
-    <!-- Education -->
     <section id="education">
       <h2>Education</h2>
       <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
@@ -276,32 +108,7 @@
     </footer>
   </div>
 
-  <!-- SIDEBAR TOGGLE SCRIPT -->
-  <script>
-    const button = document.getElementById("toggle-btn");
-    const body = document.body;
-
-    function toggleSidebar() {
-      // Desktop behavior
-      if (window.innerWidth > 768) {
-        body.classList.toggle("collapsed");
-      } else {
-        // Mobile behavior
-        body.classList.toggle("show-sidebar");
-      }
-    }
-
-    button.addEventListener("click", toggleSidebar);
-
-    // Close sidebar when clicking outside (mobile only)
-    document.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const sidebar = document.getElementById("sidebar");
-        if (!sidebar.contains(e.target) && e.target !== button) {
-          body.classList.remove("show-sidebar");
-        }
-      }
-    });
-  </script>
+  <!-- External JS -->
+  <script src="script.js"></script>
 </body>
 </html>
