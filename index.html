@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lewis — Technical Artist CV</title>
 
-  <!-- ✅ Base path for GitHub Pages (update 'repository-name' to match your repo) -->
-  <base href="/lewis_portfolio/">
-
-  <!-- ✅ Favicon -->
+  <!-- Optional favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
@@ -32,8 +29,11 @@
       left: 0;
       top: 0;
       overflow-x: hidden;
-      transition: 0.3s;
       border-right: 1px solid #3C3C3C;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 1000;
     }
 
     .sidebar h2 {
@@ -57,6 +57,7 @@
       color: #4FC1FF;
     }
 
+    /* --- TOGGLE BUTTON --- */
     .toggle-btn {
       position: fixed;
       left: 250px;
@@ -67,7 +68,12 @@
       padding: 8px 10px;
       cursor: pointer;
       font-size: 16px;
-      z-index: 1001;
+      z-index: 1100;
+      transition: left 0.3s ease;
+    }
+
+    .collapsed .toggle-btn {
+      left: 20px;
     }
 
     /* --- MAIN CONTENT --- */
@@ -75,11 +81,12 @@
       margin-left: 240px;
       padding: 40px 50px;
       max-width: 900px;
-      transition: margin-left 0.3s;
+      transition: margin-left 0.3s ease;
     }
 
     .collapsed .sidebar {
-      width: 0;
+      transform: translateX(-100%);
+      opacity: 0;
     }
 
     .collapsed .main {
@@ -138,6 +145,33 @@
       padding: 20px;
       border-top: 1px solid #3C3C3C;
     }
+
+    /* --- RESPONSIVE STYLES --- */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        opacity: 0;
+        width: 220px;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 30px 20px;
+      }
+
+      .toggle-btn {
+        left: 20px;
+      }
+
+      body.show-sidebar .sidebar {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -153,7 +187,7 @@
   </div>
 
   <!-- COLLAPSE BUTTON -->
-  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+  <button class="toggle-btn" id="toggle-btn">☰</button>
 
   <!-- MAIN CONTENT -->
   <div class="main" id="main-content">
@@ -244,9 +278,30 @@
 
   <!-- SIDEBAR TOGGLE SCRIPT -->
   <script>
+    const button = document.getElementById("toggle-btn");
+    const body = document.body;
+
     function toggleSidebar() {
-      document.body.classList.toggle("collapsed");
+      // Desktop behavior
+      if (window.innerWidth > 768) {
+        body.classList.toggle("collapsed");
+      } else {
+        // Mobile behavior
+        body.classList.toggle("show-sidebar");
+      }
     }
+
+    button.addEventListener("click", toggleSidebar);
+
+    // Close sidebar when clicking outside (mobile only)
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        const sidebar = document.getElementById("sidebar");
+        if (!sidebar.contains(e.target) && e.target !== button) {
+          body.classList.remove("show-sidebar");
+        }
+      }
+    });
   </script>
 </body>
 </html>
