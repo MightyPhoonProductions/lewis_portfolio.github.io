@@ -12,20 +12,22 @@ function resizeMatrixCanvas() {
 }
 resizeMatrixCanvas();
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%";
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
 let fontSize = window.innerWidth < 480 ? 12 : 16;
 let columns = matrixCanvas.width / fontSize;
 let drops = Array(Math.floor(columns)).fill(1);
 
 function drawMatrix(){
-  if(window.innerWidth >= 480){ // hide on small screens
-    mCtx.fillStyle = "rgba(0,0,0,0.05)";
+  if(window.innerWidth >= 480){ // hide on tiny screens
+    // subtle trail instead of solid
+    mCtx.fillStyle = "rgba(0,0,0,0.08)"; 
     mCtx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
 
-    mCtx.fillStyle = "#0F0";
+    mCtx.fillStyle = "rgba(0,255,0,0.25)"; // reduce brightness
     mCtx.font = fontSize + "px monospace";
 
     for(let i=0;i<drops.length;i++){
+      if(Math.random() < 0.6) continue; // skip some letters
       const text = letters.charAt(Math.floor(Math.random()*letters.length));
       mCtx.fillText(text,i*fontSize,drops[i]*fontSize);
       drops[i]++;
