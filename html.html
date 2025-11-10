@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lewis — Technical Artist CV</title>
+  <style>
+    /* --- GLOBAL STYLES --- */
+    body {
+      margin: 0;
+      font-family: 'Consolas', 'Source Code Pro', 'Courier New', monospace;
+      background-color: #1E1E1E;
+      color: #D4D4D4;
+      scroll-behavior: smooth;
+      display: flex;
+    }
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+      height: 100vh;
+      width: 240px;
+      background-color: #252526;
+      padding-top: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow-x: hidden;
+      transition: 0.3s;
+      border-right: 1px solid #3C3C3C;
+    }
+
+    .sidebar h2 {
+      color: #C586C0;
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #D4D4D4;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #373737;
+      color: #4FC1FF;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      left: 250px;
+      top: 20px;
+      background-color: #252526;
+      border: none;
+      color: #D4D4D4;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 1001;
+    }
+
+    /* --- MAIN CONTENT --- */
+    .main {
+      margin-left: 240px;
+      padding: 40px 50px;
+      max-width: 900px;
+      transition: margin-left 0.3s;
+    }
+
+    .collapsed .sidebar {
+      width: 0;
+    }
+
+    .collapsed .main {
+      margin-left: 0;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #C586C0;
+    }
+
+    h2 {
+      color: #569CD6;
+      text-transform: uppercase;
+      border-bottom: 1px solid #3C3C3C;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #C586C0;
+    }
+
+    p, li {
+      font-size: 14px;
+      color: #DCDCDC;
+    }
+
+    ul {
+      margin: 5px 0 10px 20px;
+    }
+
+    a {
+      color: #4FC1FF;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      color: #808080;
+      font-size: 13px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #3C3C3C;
+      margin: 30px 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #808080;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid #3C3C3C;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR NAVIGATION -->
+  <div class="sidebar" id="sidebar">
+    <h2>Lewis</h2>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
+
+  <!-- COLLAPSE BUTTON -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- MAIN CONTENT -->
+  <div class="main" id="main-content">
+    <h1>Lewis</h1>
+    <p class="contact">
+      Technical Artist | Blender | Unity | Substance Painter<br>
+      📧 lewis@email.com &nbsp;|&nbsp;
+      🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
+      💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
+    </p>
+
+    <hr>
+
+    <!-- Profile -->
+    <section id="profile">
+      <h2>Profile</h2>
+      <p>
+        Creative and technically skilled artist experienced in bridging the gap between art and engineering.
+        Proficient in building real-time visuals, shaders, and pipeline tools for modern 3D workflows.
+        Passionate about optimizing visual quality and performance in interactive environments.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
+        <li><strong>Programming:</strong> C#, Python, HLSL, Shader Graph</li>
+        <li><strong>Tech Art:</strong> Rigging, Lighting, PBR Materials, VFX</li>
+        <li><strong>Version Control:</strong> Git, Plastic SCM, Perforce</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <h3>🧱 Blender Projects</h3>
+      <ul>
+        <li>Procedural environment generation using Geometry Nodes and Python scripting.</li>
+        <li>Stylized 3D props and animation pipelines for real-time rendering.</li>
+      </ul>
+
+      <h3>🎮 Unity Projects</h3>
+      <ul>
+        <li>Developed custom shader-based effects using Shader Graph and HLSL.</li>
+        <li>Created editor tools to automate material and lighting workflows.</li>
+        <li>Optimized real-time scenes for performance across platforms.</li>
+      </ul>
+
+      <h3>🎨 Substance Painter Projects</h3>
+      <ul>
+        <li>Created high-quality texture sets for realistic and stylized assets.</li>
+        <li>Developed procedural Smart Materials for consistent studio pipelines.</li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <h3>Technical Artist – Freelance</h3>
+      <p><em>2022 – Present</em></p>
+      <ul>
+        <li>Collaborated with indie studios to build tools and shaders for Unity-based games.</li>
+        <li>Implemented optimized real-time effects for VR and AR applications.</li>
+      </ul>
+
+      <h3>3D Artist – Creative Studio</h3>
+      <p><em>2020 – 2022</em></p>
+      <ul>
+        <li>Modeled and textured 3D assets using Blender and Substance Painter.</li>
+        <li>Worked closely with developers to integrate assets into game engines.</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <p><strong>B.A. in Game Art & Technical Design</strong> — Example University, 2020</p>
+    </section>
+
+    <footer>
+      © 2025 Lewis | Technical Artist Portfolio CV
+    </footer>
+  </div>
+
+  <!-- SIDEBAR TOGGLE SCRIPT -->
+  <script>
+    function toggleSidebar() {
+      document.body.classList.toggle("collapsed");
+    }
+  </script>
+</body>
+</html>
