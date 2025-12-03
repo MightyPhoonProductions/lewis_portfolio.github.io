@@ -20,7 +20,7 @@ let drops = Array(Math.floor(columns)).fill(1);
 function drawMatrix(){
   if(window.innerWidth >= 480){ // hide on tiny screens
     // subtle trail instead of solid
-    mCtx.fillStyle = "rgba(0,0,0,0.08)"; 
+    mCtx.fillStyle = "rgba(0,0,0,0.08)";
     mCtx.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
 
     mCtx.fillStyle = "rgba(0,255,0,0.25)"; // reduce brightness

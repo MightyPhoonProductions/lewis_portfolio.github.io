@@ -1,16 +1,31 @@
+// lightbox.js
 const lightbox = document.getElementById("lightbox");
 
-document.querySelectorAll(".media-grid img, .media-grid video").forEach(el=>{
-  el.addEventListener("click",()=>{
-    lightbox.innerHTML = "";
-    const clone = el.cloneNode(true);
-    clone.removeAttribute("class");
-    clone.controls = true;
-    lightbox.appendChild(clone);
-    lightbox.style.display = "flex";
+function initLightboxBindings() {
+  // clear previous listeners by cloning if needed
+  document.querySelectorAll(".media-item img, .media-item video, .media-grid img, .media-grid video").forEach(el=>{
+    el.addEventListener("click", openInLightbox);
+    el.style.cursor = "zoom-in";
   });
-});
+}
+
+function openInLightbox(el){
+  const target = (el.currentTarget) ? el.currentTarget : el;
+  lightbox.innerHTML = "";
+  const clone = target.cloneNode(true);
+  clone.removeAttribute("class");
+  if(clone.tagName.toLowerCase() === "video"){
+    clone.controls = true;
+    clone.autoplay = true;
+  }
+  lightbox.appendChild(clone);
+  lightbox.classList.add("active");
+  lightbox.style.display = "flex";
+}
 
 // Close lightbox on click or touch
-lightbox.addEventListener("click",()=>{ lightbox.style.display="none"; });
-lightbox.addEventListener("touchstart",()=>{ lightbox.style.display="none"; });
+lightbox.addEventListener("click",()=>{ lightbox.classList.remove("active"); lightbox.style.display="none"; });
+lightbox.addEventListener("touchstart",()=>{ lightbox.classList.remove("active"); lightbox.style.display="none"; });
+
+// init on load for any existing items
+document.addEventListener("DOMContentLoaded", initLightboxBindings);

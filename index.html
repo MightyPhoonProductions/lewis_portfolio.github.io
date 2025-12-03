@@ -1,134 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lewis — Technical Artist CV</title>
-<link rel="icon" href="/lewis_portfolio.github.io/favicon.ico">
-<link rel="stylesheet" href="/lewis_portfolio.github.io/css/styles.css">
-<link rel="stylesheet" href="/lewis_portfolio.github.io/css/effects.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lewis — Technical Artist CV</title>
+  <link rel="icon" href="/lewis_portfolio.github.io/favicon.ico">
+  <link rel="stylesheet" href="/lewis_portfolio.github.io/css/styles.css">
+  <link rel="stylesheet" href="/lewis_portfolio.github.io/css/effects.css">
 </head>
 <body class="dark">
 
-<!-- Particle Canvas -->
-<canvas id="particle-canvas"></canvas>
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
 
-<!-- Sidebar -->
-<div class="sidebar" id="sidebar">
-  <h2>Lewis</h2>
-  <button class="theme-btn" onclick="toggleTheme()">🌙</button>
-  <a href="#profile">Profile</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-</div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>Lewis</h2>
+    <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
 
-<!-- Sidebar toggle -->
-<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+  <!-- Sidebar toggle -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-<!-- Main content -->
-<div class="main" id="main-content">
-  <img class="banner" src="/lewis_portfolio.github.io/img/banner.png" alt="Lewis Technical Artist Banner">
+  <!-- Main content -->
+  <div class="main" id="main-content">
+    <img class="banner" src="/lewis_portfolio.github.io/img/banner.png" alt="Lewis Technical Artist Banner">
 
-  <h1 class="glitch">Lewis</h1>
-  <p class="contact">
-    Technical Artist | Blender | Unity | Substance Painter<br>
-    📧 lewisbrimble123456@gmail.com &nbsp;|&nbsp;
-    🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
-    💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
-  </p>
+    <h1 class="glitch">Lewis</h1>
+    <p class="contact">
+      Technical Artist | Blender | Unity | Substance Painter<br>
+      📧 lewisbrimble123456@gmail.com &nbsp;|&nbsp;
+      🌐 <a href="https://portfolio-link.com">portfolio-link.com</a> &nbsp;|&nbsp;
+      💼 <a href="https://linkedin.com/in/lewis">linkedin.com/in/lewis</a>
+    </p>
 
-  <hr>
+    <hr>
 
-  <section id="profile" class="fade-init">
-    <h2 class="glitch">Profile</h2>
-    <p id="intro-text"></p>
-  </section>
+    <section id="profile" class="fade-init">
+      <h2 class="glitch">Profile</h2>
+      <p id="intro-text"></p>
+    </section>
 
-  <section id="skills" class="fade-init">
-    <h2 class="glitch">Technical Skills</h2>
-    <ul>
-      <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
-      <li><strong>Programming:</strong> C#, Python, c++, Html, Java Script</li>
-      <li><strong>Tech Art:</strong> Rigging, PBR Materials, Animation</li>
-      <li><strong>Version Control:</strong> Github</li>
-    </ul>
-  </section>
+    <section id="skills" class="fade-init">
+      <h2 class="glitch">Technical Skills</h2>
+      <ul>
+        <li><strong>Software:</strong> Blender, Unity, Substance Painter, Unreal Engine</li>
+        <li><strong>Programming:</strong> C#, Python, C++, HTML, JavaScript</li>
+        <li><strong>Tech Art:</strong> Rigging, PBR Materials, Animation</li>
+        <li><strong>Version Control:</strong> GitHub</li>
+      </ul>
+    </section>
 
-  <section id="projects" class="fade-init">
-    <h2 class="glitch">Projects</h2>
-    <div class="project-filters">
-      <button onclick="filterProjects('blender')">Blender</button>
-      <button onclick="filterProjects('unity')">Unity</button>
-      <button onclick="filterProjects('substance')">Substance</button>
-      <button onclick="filterProjects('all')">All</button>
-    </div>
+    <!-- FULL PROJECTS SECTION (auto-populated) -->
+    <section id="projects" class="fade-init">
+      <h2 class="glitch">Projects</h2>
 
-    <div class="media-grid project-item blender">
-      <img src="/lewis_portfolio.github.io/media/blender/blender1.jpg" alt="Blender Project 1" class="neon-glow hover-glitch">
-      <img src="/lewis_portfolio.github.io/media/blender/blender2.jpg" alt="Blender Project 2" class="neon-glow hover-glitch">
-    </div>
+      <div class="project-filters">
+        <button onclick="filterProjects('blender')">Blender</button>
+        <button onclick="filterProjects('unity')">Unity</button>
+        <button onclick="filterProjects('substance')">Substance</button>
+        <button onclick="filterProjects('all')">All</button>
+      </div>
 
-    <div class="media-grid project-item unity">
-      <video src="/lewis_portfolio.github.io/media/unity/unity1.mp4" controls class="neon-glow hover-glitch"></video>
-      <video src="/lewis_portfolio.github.io/media/unity/unity2.mp4" controls class="neon-glow hover-glitch"></video>
-    </div>
+      <!-- Containers that the mediaLoader will populate -->
+      <div id="blender-projects" class="project-section-container"></div>
+      <div id="unity-projects"   class="project-section-container"></div>
+      <div id="substance-projects" class="project-section-container"></div>
+    </section>
 
-    <div class="media-grid project-item substance">
-      <img src="/lewis_portfolio.github.io/media/substance/sub1.jpg" alt="Substance Project" class="neon-glow hover-glitch">
-    </div>
-  </section>
+    <section id="experience" class="fade-init">
+      <h2 class="glitch">Experience</h2>
+      <h3>Future Work</h3>
+      <p><em>More professional experience to be added soon.</em></p>
 
-  <section id="experience" class="fade-init">
-    <h2 class="glitch">Experience</h2>
-    <h3>input future stuff here</h3>
-    <p><em>''''</em></p>
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-    <div class="media-grid project-item experience">
-      <img src="/lewis_portfolio.github.io/media/experience/exp1.jpg" alt="Experience Project" class="neon-glow hover-glitch">
-    </div>
+      <div class="media-grid project-item experience">
+        <img src="/lewis_portfolio.github.io/media/experience/exp1.jpg" alt="Experience Project" class="neon-glow hover-glitch">
+      </div>
 
-    <h3>Programmer – Game Jam - Safari Tycoon</h3>
-    <p><em>Easter Game Jam</em></p>
-    <ul>
-      <li>made the code that allowed the player to be able to upgrade the cart. </li>
-      <li>made the camera zoom out when the player maxes out the safari.</li>
-    </ul>
-  </section>
+      <h3>Programmer – Game Jam: Safari Tycoon</h3>
+      <p><em>Easter Game Jam</em></p>
+      <ul>
+        <li>Developed upgrade system for player cart.</li>
+        <li>Implemented dynamic camera zoom-out when player completes safari.</li>
+      </ul>
+    </section>
 
-  <section id="education" class="fade-init">
-    <h2 class="glitch">Education</h2>
-    <p><strong>level 3 Games development</strong> — Access Creative College, 2025 - 2026</p>
-  </section>
+    <section id="education" class="fade-init">
+      <h2 class="glitch">Education</h2>
+      <p><strong>Level 3 Games Development</strong> — Access Creative College, 2025–2026</p>
+    </section>
 
-  <button id="back-to-top" onclick="scrollToTop()">↑ Top</button>
-  <footer>
-    © 2025 Lewis | Technical Artist Portfolio CV
-  </footer>
-</div>
+    <button id="back-to-top" onclick="scrollToTop()">↑ Top</button>
+    <footer>© 2025 Lewis | Technical Artist Portfolio CV</footer>
+  </div>
 
-<!-- Lightbox -->
-<div id="lightbox"></div>
+  <!-- Lightbox -->
+  <div id="lightbox"></div>
 
-<!-- Retro Terminal -->
-<div id="retro-terminal" class="hidden">
-  <pre id="terminal-text"></pre>
-  <span id="cursor">█</span>
-  <button id="close-terminal" onclick="closeTerminal()">Close</button>
-</div>
+  <!-- Retro Terminal -->
+  <div id="retro-terminal" class="hidden">
+    <pre id="terminal-text"></pre>
+    <span id="cursor">█</span>
+    <button id="close-terminal" onclick="closeTerminal()">Close</button>
+  </div>
 
-<script src="/lewis_portfolio.github.io/js/particles.js"></script>
-<script src="/lewis_portfolio.github.io/js/matrix.js"></script>
-<script src="/lewis_portfolio.github.io/js/cursor.js"></script>
-<script src="/lewis_portfolio.github.io/js/scroll.js"></script>
-<script src="/lewis_portfolio.github.io/js/main.js"></script>
-<script src="/lewis_portfolio.github.io/js/filter.js"></script>
-<script src="/lewis_portfolio.github.io/js/lightbox.js"></script>
-<script src="/lewis_portfolio.github.io/js/easterEgg.js"></script>
-
+  <!-- JS (order matters) -->
+  <script src="/lewis_portfolio.github.io/js/particles.js"></script>
+  <script src="/lewis_portfolio.github.io/js/matrix.js"></script>
+  <script src="/lewis_portfolio.github.io/js/cursor.js"></script>
+  <script src="/lewis_portfolio.github.io/js/scroll.js"></script>
+  <script src="/lewis_portfolio.github.io/js/main.js"></script>
+  <script src="/lewis_portfolio.github.io/js/filter.js"></script>
+  <script src="/lewis_portfolio.github.io/js/lightbox.js"></script>
+  <script src="/lewis_portfolio.github.io/js/easterEgg.js"></script>
+  <script src="/lewis_portfolio.github.io/js/mediaLoader.js"></script>
 </body>
 </html>

@@ -1,11 +1,15 @@
-const faders = document.querySelectorAll('.fade-init');
+// scroll.js - IntersectionObserver fade-in
+document.addEventListener("DOMContentLoaded", () => {
+  const faders = document.querySelectorAll('.fade-init');
 
-function checkFade() {
-  const triggerBottom = window.innerHeight * 0.9;
-  faders.forEach(f => {
-    const top = f.getBoundingClientRect().top;
-    if(top < triggerBottom) f.classList.add('fade-in');
-  });
-}
-window.addEventListener('scroll', checkFade);
-window.addEventListener('load', checkFade);
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  faders.forEach(f => observer.observe(f));
+});
